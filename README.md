@@ -1,3 +1,13 @@
+### Supported
+
+- Expo (React Native)
+- React-Navigation
+- Redux Toolkit (State Management and Query)
+- Joi (Validation)
+- React Hook Form
+- Native Base (UI kit)
+- FlashList (instead of FlatList)
+
 # TypeScript Example
 
 <p>
