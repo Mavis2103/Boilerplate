@@ -1,7 +1,7 @@
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import Home from "~screens/Home/Home";
-import Setting from "~screens/Setting/Setting";
+import Home from "screens/Home/Home";
+import Setting from "screens/Setting/Setting";
 
 const BottomTab = createMaterialBottomTabNavigator();
 

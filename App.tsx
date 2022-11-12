@@ -1,13 +1,13 @@
+import { Provider } from "react-redux";
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer, LinkingOptions } from "@react-navigation/native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import { RouteConfig, RouteWebConfig } from "~configs/routeConfig";
-import { Provider } from "react-redux";
-import store from "~stores";
+import store from "./src/stores";
+import { RouteConfig, RouteWebConfig } from "./src/configs/routeConfig";
 
 export default function App() {
-	const linking = {
+	const linking: any = {
 		prefixes: [
 			/* your linking prefixes */
 			// 'mychat://',

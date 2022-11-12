@@ -1,12 +1,18 @@
 ### Supported
 
-- Expo (React Native)
 - React-Navigation
 - Redux Toolkit (State Management and Query)
 - Joi (Validation)
 - React Hook Form
 - Native Base (UI kit)
 - FlashList (instead of FlatList)
+- react-native-mmkv-storage (only Mobile)
+
+### Tools
+
+- Expo (React Native)
+- Husky
+- Rome (Linter, Formatter)
 
 # TypeScript Example
 
