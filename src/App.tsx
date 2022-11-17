@@ -21,14 +21,13 @@ export default function App() {
       /* configuration for matching screens with paths */
     },
   };
+
   return (
     <SafeAreaProvider>
       <NativeBaseProvider>
         <Provider store={store}>
           <NavigationContainer linking={linking}>
-            <SafeAreaView style={{flex: 1}}>
-              <RouteConfig />
-            </SafeAreaView>
+            <RouteConfig />
           </NavigationContainer>
         </Provider>
       </NativeBaseProvider>

@@ -1,12 +1,14 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { countReducer } from "./count/slice";
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+
+import {userReducer} from './user/slices';
 
 const rootReducer = combineReducers({
-	countStore: countReducer,
+  userStore: userReducer,
 });
 
+// run when open app
 const store = configureStore({
-	reducer: rootReducer,
+  reducer: rootReducer,
 });
 
 export default store;

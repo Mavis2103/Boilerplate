@@ -1,10 +1,14 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Auth from '~screens/Auth/Auth';
-import Home from '~screens/Home/Home';
 import {NavigationConfig, NavigationWebConfig} from './navigationConfig';
 
-const Main = createNativeStackNavigator();
+export type RootStackParamList = {
+  Main: undefined;
+  Auth: undefined;
+};
+
+const Main = createNativeStackNavigator<RootStackParamList>();
 
 const RouteConfig = () => {
   return (

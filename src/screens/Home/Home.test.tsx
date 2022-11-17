@@ -1,12 +1,12 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react-native";
-import Home from "./Home";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Home from './Home';
 
-test("adds 1 + 2 to equal 3", () => {
-	expect(1 + 2).toBe(3);
+test('adds 1 + 2 to equal 3', () => {
+  expect(1 + 2).toBe(3);
 });
 
-test("renders correctly", () => {
-	const tree = render(<Home />).toJSON();
-	expect(tree).toMatchSnapshot();
+test('renders correctly', () => {
+  const tree = renderer.create(<Home />).toJSON();
+  expect(tree).toMatchSnapshot();
 });

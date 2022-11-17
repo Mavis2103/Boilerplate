@@ -1,16 +1,19 @@
-import {Box, Button, Text} from 'native-base';
-import {Link} from '@react-navigation/native';
+import {Heading} from 'native-base';
+
+import {Screen} from '~components';
+import AuthForm from './Auth.form';
 
 const Auth = () => {
   return (
-    <Box
-      height={500}
-      flex={1}
-      bg="blue.400"
-      alignItems="center"
-      justifyContent="center">
-      <Link to={{screen: 'Main'}}>Main</Link>
-    </Box>
+    <Screen.BoxCenter>
+      <Heading size="lg" fontWeight="600" color="coolGray.800">
+        Welcome
+      </Heading>
+      <Heading mt="1" color="coolGray.600" fontWeight="medium" size="xs">
+        Sign in to continue!
+      </Heading>
+      <AuthForm mt={5} />
+    </Screen.BoxCenter>
   );
 };
 

@@ -30,9 +30,11 @@ const babelLoaderConfiguration = {
           {
             alias: {
               '^react-native$': 'react-native-web',
-              "~screens": path.resolve(appDirectory, "./src/screens"),
-              "~configs": path.resolve(appDirectory, "./src/configs"),
-              "~stores": path.resolve(appDirectory, "./src/stores"),
+              '~screens': path.resolve(appDirectory, './src/screens'),
+              '~configs': path.resolve(appDirectory, './src/configs'),
+              '~stores': path.resolve(appDirectory, './src/stores'),
+              '~components': path.resolve(appDirectory, './src/components'),
+              '~utils': path.resolve(appDirectory, './src/utils'),
             },
           },
         ],
@@ -83,5 +85,5 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-  }
+  },
 };

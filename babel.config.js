@@ -3,24 +3,24 @@ module.exports = {
   plugins: [
     // ... some other plugins
     [
-      "module-resolver",
+      'module-resolver',
       {
-        root: ["."],
+        root: ['.'],
         alias: {
           /**
            * Regular expression is used to match all files inside `./src` directory and map each `.src/folder/[..]` to `~folder/[..]` path
            */
-          "^~(.+)": "./src/\\1",
+          '^~(.+)': './src/\\1',
         },
         extensions: [
-          ".ios.js",
-          ".android.js",
-          ".js",
-          ".jsx",
-          ".json",
-          ".tsx",
-          ".ts",
-          ".native.js",
+          '.ios.js',
+          '.android.js',
+          '.js',
+          '.jsx',
+          '.json',
+          '.tsx',
+          '.ts',
+          '.native.js',
         ],
       },
     ],
