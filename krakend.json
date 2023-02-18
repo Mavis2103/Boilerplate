@@ -1,0 +1,142 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "Lalahome - API Gateway",
+  "timeout": "30000ms",
+  "cache_ttl": "3000s",
+  "output_encoding": "json",
+  "extra_config": {
+    "router": {
+      "return_error_msg": true
+    },
+    "security/cors": {
+      "allow_origins": [
+        "*"
+      ],
+      "allow_methods": [
+        "GET",
+        "HEAD",
+        "POST"
+      ],
+      "max_age": "12h",
+      "allow_credentials": false
+    }
+  },
+  "endpoints": [
+    {
+      "method": "POST",
+      "endpoint": "/login",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "POST",
+          "url_pattern": "/user/login"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "endpoint": "/register",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "POST",
+          "url_pattern": "/user/register"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "endpoint": "/refresh",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "POST",
+          "url_pattern": "/user/refresh"
+        }
+      ]
+    },
+    {
+      "method": "POST",
+      "endpoint": "/logout",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "POST",
+          "url_pattern": "/user/logout"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "endpoint": "/tenant",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "GET",
+          "url_pattern": "/tenant"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "endpoint": "/landlord",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "GET",
+          "url_pattern": "/landlord"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "endpoint": "/public",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "GET",
+          "url_pattern": "/public"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "endpoint": "/home",
+      "input_headers": [
+        "Authorization"
+      ],
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": [
+            "http://sv_auth:3000"
+          ],
+          "method": "GET",
+          "url_pattern": "/user/home"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+version: "3.4"
+
+services:
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./
+      dockerfile: Dockerfile.krakend
+    image: devopsfaith/krakend
+    ports:
+      - "8080:8080"
+  pg:
+    container_name: postgres
+    image: postgres:15.1
+    restart: always
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_PASSWORD=!@anhquan@!
+    volumes:
+      - pg-volume:/var/lib/postgresql/data
+  keycloak:
+    container_name: keycloak
+    build:
+      context: ./
+      dockerfile: Dockerfile.keycloak
+    image: quay.io/keycloak/keycloak:18.0.2
+    ports:
+      - "8081:8080"
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=postgres
+      - KC_DB_HOST=pg
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=!@anhquan@!
+      - KC_HOSTNAME=localhost
+    # volumes:
+    #   - ./imports/keycloak:/opt/keycloak/data/import
+    # command: start-dev --import-realm
+    command: start
+    depends_on:
+      - pg
+  sv_auth:
+    container_name: sv_auth
+    build:
+      context: ./authentication_service
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    command: yarn start
+volumes:
+  pg-volume:
